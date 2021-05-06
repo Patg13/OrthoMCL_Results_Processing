@@ -1,11 +1,14 @@
-# OrthoMCL_Results_Processing
-This python program will take the orthomcl output (groups, proteomes and singletons) and produce different human readable results
+# OrthoMCL_Results_Processing (OMRP)
+This Python3 program will take the orthomcl output (groups, proteomes and singletons) and produce different human readable results
 
-# Dependencies
-pyvenn (already available in this repo as venn_l, original reference: https://github.com/tctianchi/pyvenn)
-matplotlib 3.3.4 (Required) -> Generate Venn diagrams
-Spacy 3.0.3 (Optionnal, use --ignore_spacy flag to skip) -> Regroup similar protein function annotation according to their textual similarity
-en_core_web_lg dictionnary for Spacy -> Gives best results during testing
+# Python3 Dependencies
+**pyvenn** (_already available in this repo as venn_l_, original reference: https://github.com/tctianchi/pyvenn)
+
+**matplotlib 3.3.4 (Required)** -> Used by pyvenn to generate venn diagrams
+
+**Spacy 3.0.3 (Optionnal, use --ignore_spacy flag to skip)** -> Regroup similar protein function annotation according to their textual similarity
+
+**en_core_web_lg dictionnary for Spacy** -> Gives best results during testing
 
 # Usage:
   
@@ -25,7 +28,7 @@ en_core_web_lg dictionnary for Spacy -> Gives best results during testing
                         
   -c SPC_LIST, --species SPC_LIST
   
-                        Species tag list (ex: TBE,COVI,...) [REQUIRED]
+                        Species tag list used in data (ex: TBE,COVI,...) [REQUIRED]
                         
   -r REGROUP_LIST, --regroup REGROUP_LIST
   
@@ -76,3 +79,7 @@ All the proteomes must contain a unique sequence identifier AND a protein functi
 The singletons file can be ommited if you don't want to include the singletons in your results
 
 # OrthoTable
+After preparing the groups according to the species and regroups lists, OMRP will compile the protein counts into the OrthoTable (which contain the group count for every species combination possible andn their protein count (up to --limit). This table will be save in OrthoTable.tsv
+
+# Venn Diagrams
+Using the information in OrthoTable, 3 venn diagrams will be generated; B C and P. P_venn will use the protein count, C will use the group count and B will contain both information (group_count on top and protein count in parenthesis at the bottom). Please note that the program
