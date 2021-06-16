@@ -136,8 +136,8 @@ class ortho_table:
                 line.append(count)
                 count_total_dict[j]+=count
             total_len=len(comb_dicti[i])
-            line.append(total_len-sum(line[1:]))
             count_total_dict[limit]+=total_len-sum(line[1:])
+            line.append(total_len-sum(line[1:]))
             count_total_dict[limit+1]+=sum(line[1:])
             line.append(sum(line[1:]))
             
