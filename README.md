@@ -28,7 +28,7 @@ This Python3 program will take the orthomcl output (groups, proteomes and single
                         
   -c SPC_LIST, --species SPC_LIST
   
-                        Species tag list used in data (ex: TBE,COVI,...) [REQUIRED]
+                        Species tag list used in data (ex: SP1,SP2,...) [REQUIRED]
                         
   -r REGROUP_LIST, --regroup REGROUP_LIST
   
@@ -88,7 +88,19 @@ Using the information in OrthoTable, 3 venn diagrams will be generated; B C and 
 Using the proteome file, OMRP will create a TSV file containing all annotation for each group identified by OrthoMCL. Because there can be a lot of different annotation (depending on the database you use), OMRP uses the SPACY library to detect similar annotation according to their textual similarity (exemple, DNase Acc 3344 and DNase Acc 6677 will be considered the same annotation and only one will appear in the TSV). You can completely ignore the spacy step, which will result in only identical annotation will be regrouped (the TSV will be much bigger though). 
 
 # Genes By Families by Species
+This step will generate csv files for each shared line in the OrthoTable according to this syntax (in this exemple, the csv filename would be **SP1_SP2.gpfs.csv**):
+@ 3 members: 23 families		
+	SP1	SP2
+grp_8045:	1	2
+grp_8046:	1	2
+@ 4 members: 6 families		
+	SP1	SP2
+grp_4165:	1	3
+
+This is very useful to determine the species gene count for each Ortho Group 
 
 # Groups Fasta files
+OMRP will generate a serie of folder (one for each ortho group) which will contain multiple fasta files (one file containing all proteins for this group and one file for each species). Depending on your ortho group count, this can take a lot of space and will generate a lot of files. If you included a singletons file, they will be noted as single_# instead of your chosen prefix.
 
 # OrthoTable Fasta
+ORMP will also generate another serie of folder which will reflect the content of the OrthoTable. Each fasta will be classified by their respective base species, then if they are in a shared state (ex : shared between species 1 and species 2) or a unique state (only in the current species), then by the specific share (specie1_species2), then by the number of protein shared (2 - TABLE_LIMIT+ ), uou will then find every Ortho group fasta. This is probably the most heavy step for space and file count.
