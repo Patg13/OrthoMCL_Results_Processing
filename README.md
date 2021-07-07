@@ -6,7 +6,7 @@ This Python3 program will take the orthomcl output (groups, proteomes and single
 
 **matplotlib 3.3.4 (Required)** -> Used by pyvenn to generate venn diagrams
 
-**Spacy 3.0.3 (Optionnal, use --ignore_spacy flag to skip)** -> Regroup similar protein function annotation according to their textual similarity
+**Spacy 3.0.3 (Optional, use --ignore_spacy flag to skip)** -> Regroup similar protein function annotation according to their textual similarity
 
 **en_core_web_lg dictionnary for Spacy** -> Gives best results during testing
 
