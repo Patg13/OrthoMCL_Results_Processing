@@ -93,6 +93,7 @@ This step will generate csv files for each shared line in the OrthoTable accordi
 @ 3 members: 23 families
 	
 Group	SP1	SP2
+
 grp_8045:	1	2
 
 grp_8046:	1	2
@@ -100,6 +101,7 @@ grp_8046:	1	2
 @ 4 members: 6 families
 
 Group	SP1	SP2
+
 grp_4165:	1	3
 
 
