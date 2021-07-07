@@ -82,4 +82,13 @@ The singletons file can be ommited if you don't want to include the singletons i
 After preparing the groups according to the species and regroups lists, OMRP will compile the protein counts into the OrthoTable (which contain the group count for every species combination possible andn their protein count (up to --limit). This table will be save in OrthoTable.tsv
 
 # Venn Diagrams
-Using the information in OrthoTable, 3 venn diagrams will be generated; B C and P. P_venn will use the protein count, C will use the group count and B will contain both information (group_count on top and protein count in parenthesis at the bottom). Please note that the program
+Using the information in OrthoTable, 3 venn diagrams will be generated; B C and P. P_venn will use the protein count, C will use the group count and B will contain both information (group_count on top and protein count in parenthesis at the bottom). Please note that the program only support up to 6 species for the venn diagram, if you have more then that, you must use the --regroup option the regroup some species together (or you can leave it like that, but venn diagram generation will be skipped). Also note that a level 6 venn diagram is very hard to read (using triangles instead of ellipses).
+
+# Spacy and annotation extraction
+Using the proteome file, OMRP will create a TSV file containing all annotation for each group identified by OrthoMCL. Because there can be a lot of different annotation (depending on the database you use), OMRP uses the SPACY library to detect similar annotation according to their textual similarity (exemple, DNase Acc 3344 and DNase Acc 6677 will be considered the same annotation and only one will appear in the TSV). You can completely ignore the spacy step, which will result in only identical annotation will be regrouped (the TSV will be much bigger though). 
+
+# Genes By Families by Species
+
+# Groups Fasta files
+
+# OrthoTable Fasta
